@@ -10,10 +10,30 @@
         html, body {
             height: 100%;
         }
-        /* Fix for dropdown menu persistence */
-        .group:hover .dropdown-menu,
-        .dropdown-menu:hover {
-            display: block;
+        /* Create a hover corridor */
+        .dropdown-trigger {
+            position: relative;
+        }
+        .dropdown-trigger .dropdown-menu {
+            pointer-events: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .dropdown-trigger:hover .dropdown-menu,
+        .dropdown-trigger .dropdown-menu:hover {
+            pointer-events: auto;
+            opacity: 1;
+            visibility: visible;
+        }
+        /* Add a transparent hover area */
+        .dropdown-trigger::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            right: 0;
+            height: 20px;
         }
     </style>
 </head>
@@ -22,9 +42,9 @@
     <nav class="bg-blue-500 p-4 rounded-lg shadow-lg sticky top-0 z-10">
         <ul class="flex space-x-6">
             <!-- Web Dropdown -->
-            <li class="relative group">
+            <li class="relative dropdown-trigger">
                 <button class="text-white">Web</button>
-                <ul class="dropdown-menu absolute left-0 hidden bg-white text-black shadow-lg mt-2 rounded-lg w-48 group-hover:block hover:block group-hover:opacity-100 opacity-0 transition-opacity duration-300">
+                <ul class="dropdown-menu absolute left-0 bg-white text-black shadow-lg mt-2 rounded-lg w-48 z-20">
                     <li><a href="#" class="block p-2 hover:bg-gray-200" onclick="changeIframeSrc('https://decagondev.github.io/web-s10/')">Sprint 10</a></li>
                     <li><a href="#" class="block p-2 hover:bg-gray-200" onclick="changeIframeSrc('https://decagondev.github.io/web-acs-5-8/')">ACS 5-8</a></li>
                     <li><a href="#" class="block p-2 hover:bg-gray-200" onclick="changeIframeSrc('https://decagondev.github.io/web-sprint-13/')">Sprint 13</a></li>
@@ -32,16 +52,16 @@
                 </ul>
             </li>
             <!-- Backend Dropdown -->
-            <li class="relative group">
+            <li class="relative dropdown-trigger">
                 <button class="text-white">Backend</button>
-                <ul class="dropdown-menu absolute left-0 hidden bg-white text-black shadow-lg mt-2 rounded-lg w-48 group-hover:block hover:block group-hover:opacity-100 opacity-0 transition-opacity duration-300">
+                <ul class="dropdown-menu absolute left-0 bg-white text-black shadow-lg mt-2 rounded-lg w-48 z-20">
                     <li><a href="#" class="block p-2 hover:bg-gray-200" onclick="changeIframeSrc('https://decagondev.github.io/bd-acs-5-8/')">ACS 5-8</a></li>
                 </ul>
             </li>
             <!-- Data Science Dropdown -->
-            <li class="relative group">
+            <li class="relative dropdown-trigger">
                 <button class="text-white">Data Science</button>
-                <ul class="dropdown-menu absolute left-0 hidden bg-white text-black shadow-lg mt-2 rounded-lg w-48 group-hover:block hover:block group-hover:opacity-100 opacity-0 transition-opacity duration-300">
+                <ul class="dropdown-menu absolute left-0 bg-white text-black shadow-lg mt-2 rounded-lg w-48 z-20">
                     <li class="p-2 text-gray-500">No sprints available</li>
                 </ul>
             </li>
