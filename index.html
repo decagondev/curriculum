@@ -10,8 +10,9 @@
         html, body {
             height: 100%;
         }
-        /* Enhance dropdown behavior */
-        .group:hover .dropdown-menu {
+        /* Fix for dropdown menu persistence */
+        .group:hover .dropdown-menu,
+        .dropdown-menu:hover {
             display: block;
         }
     </style>
@@ -23,7 +24,7 @@
             <!-- Web Dropdown -->
             <li class="relative group">
                 <button class="text-white">Web</button>
-                <ul class="dropdown-menu absolute left-0 hidden bg-white text-black shadow-lg mt-2 rounded-lg w-48 group-hover:block group-hover:opacity-100 opacity-0 transition-opacity duration-300">
+                <ul class="dropdown-menu absolute left-0 hidden bg-white text-black shadow-lg mt-2 rounded-lg w-48 group-hover:block hover:block group-hover:opacity-100 opacity-0 transition-opacity duration-300">
                     <li><a href="#" class="block p-2 hover:bg-gray-200" onclick="changeIframeSrc('https://decagondev.github.io/web-s10/')">Sprint 10</a></li>
                     <li><a href="#" class="block p-2 hover:bg-gray-200" onclick="changeIframeSrc('https://decagondev.github.io/web-acs-5-8/')">ACS 5-8</a></li>
                     <li><a href="#" class="block p-2 hover:bg-gray-200" onclick="changeIframeSrc('https://decagondev.github.io/web-sprint-13/')">Sprint 13</a></li>
@@ -33,14 +34,14 @@
             <!-- Backend Dropdown -->
             <li class="relative group">
                 <button class="text-white">Backend</button>
-                <ul class="dropdown-menu absolute left-0 hidden bg-white text-black shadow-lg mt-2 rounded-lg w-48 group-hover:block group-hover:opacity-100 opacity-0 transition-opacity duration-300">
+                <ul class="dropdown-menu absolute left-0 hidden bg-white text-black shadow-lg mt-2 rounded-lg w-48 group-hover:block hover:block group-hover:opacity-100 opacity-0 transition-opacity duration-300">
                     <li><a href="#" class="block p-2 hover:bg-gray-200" onclick="changeIframeSrc('https://decagondev.github.io/bd-acs-5-8/')">ACS 5-8</a></li>
                 </ul>
             </li>
             <!-- Data Science Dropdown -->
             <li class="relative group">
                 <button class="text-white">Data Science</button>
-                <ul class="dropdown-menu absolute left-0 hidden bg-white text-black shadow-lg mt-2 rounded-lg w-48 group-hover:block group-hover:opacity-100 opacity-0 transition-opacity duration-300">
+                <ul class="dropdown-menu absolute left-0 hidden bg-white text-black shadow-lg mt-2 rounded-lg w-48 group-hover:block hover:block group-hover:opacity-100 opacity-0 transition-opacity duration-300">
                     <li class="p-2 text-gray-500">No sprints available</li>
                 </ul>
             </li>
